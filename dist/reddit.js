@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({9:[function(require,module,exports) {
+})({5:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -77,7 +77,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
 	search: function (searchTerm, searchLimit, sortBy) {
-		return fetch(`http://www.reddit.com/search.json?q=${searchTerm}&sort=${sortBy}&limit=${searchLimit}`).then(res => res.json()).then(data => {
+		return fetch(`https://www.reddit.com/search.json?q=${searchTerm}&sort=${sortBy}&limit=${searchLimit}`).then(res => res.json()).then(data => {
 			return data.data.children.map(data => data.data);
 		}).catch(err => console.log(err));
 	}
@@ -167,7 +167,7 @@ function truncateText(text, limit) {
   if (shortened == -1) return text;
   return text.substring(0, shortened);
 }
-},{"./redditapi":9}],11:[function(require,module,exports) {
+},{"./redditapi":5}],7:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -187,7 +187,7 @@ module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
-  var ws = new WebSocket('ws://' + hostname + ':' + '56426' + '/');
+  var ws = new WebSocket('ws://' + hostname + ':' + '50513' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -288,5 +288,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[11,3])
+},{}]},{},[7,3])
 //# sourceMappingURL=/dist/reddit.map
